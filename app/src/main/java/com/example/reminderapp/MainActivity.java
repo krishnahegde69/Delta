@@ -1,9 +1,11 @@
 package com.example.reminderapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         adapter = new myAdapter(dataholder);
-        mRecyclerview.setAdapter(adapter);     //Binds the adapter with recyclerview
+        mRecyclerview.setAdapter(adapter);//Binds the adapter with recyclerview
 
     }
 

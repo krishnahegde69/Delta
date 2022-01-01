@@ -52,7 +52,9 @@ public class dbManager extends SQLiteOpenHelper {
         SQLiteDatabase database = this.getWritableDatabase();
         String query = "select * from tbl_reminder order by id desc";
         Cursor cursor = database.rawQuery(query, null);
+
         return cursor;
     }
+
 }
 
