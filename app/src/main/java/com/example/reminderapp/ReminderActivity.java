@@ -112,7 +112,8 @@ public class ReminderActivity extends AppCompatActivity {
         datePickerDialog.show();
     }
 
-    public String FormatTime(int hour, int minute) {   //this method converts the time into 12hr farmat and assigns am or pm
+    public String FormatTime(int hour, int minute) {
+        //this method converts the time into 12hr farmat and assigns am or pm
 
         String time;
         time = "";

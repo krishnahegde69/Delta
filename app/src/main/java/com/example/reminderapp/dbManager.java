@@ -43,7 +43,7 @@ public class dbManager extends SQLiteOpenHelper {
         if (result == -1) {
             return "Failed";
         } else {
-            return "Successfully inserted";
+            return "Reminder Set";
         }
 
     }

@@ -3,8 +3,8 @@ package com.example.reminderapp;
 public class Model {
     String title, date, time;
 
-    public Model() {
-    }
+//    public Model() {
+//    }
 
     public Model(String title, String date, String time) {
         this.title = title;
