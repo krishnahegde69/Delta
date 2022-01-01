@@ -40,7 +40,7 @@ public class AlaramBroadcast extends BroadcastReceiver {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 1, intent1, PendingIntent.FLAG_ONE_SHOT);
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "notify_001");
-//        Vibrator vibrator = (Vibrator) context.getSystemService(context.VIBRATOR_SERVICE);
+        Vibrator vibrator = (Vibrator) context.getSystemService(context.VIBRATOR_SERVICE);
 
 
         //   here we set all the properties for the notification
@@ -51,15 +51,31 @@ public class AlaramBroadcast extends BroadcastReceiver {
         contentView.setTextViewText(R.id.message, text);
         contentView.setTextViewText(R.id.date, date);
         mBuilder.setSmallIcon(R.drawable.alaram);
-        mBuilder.setDefaults(Notification.DEFAULT_SOUND);
-        mBuilder.setOngoing(true);
-        mBuilder.setAutoCancel(true);
+
+//        vibrator.vibrate(400);
+        Toast.makeText(context, "message", Toast.LENGTH_LONG).show();
+        Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
+        if (alarmUri == null) {
+            alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        }
+        Ringtone ringtone = RingtoneManager.getRingtone(context, alarmUri);
+        ((Ringtone) ringtone).play();
+
+//        mBuilder.setDefaults(Notification.DEFAULT_SOUND);
+//        mBuilder.setOngoing(true);
+//        mBuilder.setAutoCancel(true);
         mBuilder.setPriority(Notification.PRIORITY_HIGH);
         mBuilder.setOnlyAlertOnce(true);
         mBuilder.setAutoCancel(true);
         mBuilder.build().flags = Notification.FLAG_NO_CLEAR | Notification.PRIORITY_HIGH;
         mBuilder.setContent(contentView);
         mBuilder.setContentIntent(pendingIntent);
+
+
+        //setting default ringtone
+
+        // play ringtone
+
 
 
 
@@ -73,8 +89,10 @@ public class AlaramBroadcast extends BroadcastReceiver {
             mBuilder.setChannelId(channelId);
         }
 
+
         Notification notification = mBuilder.build();
         notificationManager.notify(1, notification);
+        ((Ringtone) ringtone).stop();
 
 
 
