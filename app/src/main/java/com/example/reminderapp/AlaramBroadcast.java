@@ -42,19 +42,18 @@ public class AlaramBroadcast extends BroadcastReceiver {
         NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(context, "notify_001");
 
-//        Vibrator vibrator = (Vibrator) context.getSystemService(context.VIBRATOR_SERVICE);
+
 
 
         //   here we set all the properties for the notification
         RemoteViews contentView = new RemoteViews(context.getPackageName(), R.layout.notification_layout);
         contentView.setImageViewResource(R.id.image, R.mipmap.ic_launcher);
-        PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
-        contentView.setOnClickPendingIntent(R.id.flashButton, pendingSwitchIntent); //Snooze off
+//        PendingIntent pendingSwitchIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+//        contentView.setOnClickPendingIntent(R.id.flashButton, pendingSwitchIntent); //Snooze off
         contentView.setTextViewText(R.id.message, text);
         contentView.setTextViewText(R.id.date, date);
         mBuilder.setSmallIcon(R.drawable.alaram);
 
-//        vibrator.vibrate(400);
         Toast.makeText(context, "message", Toast.LENGTH_LONG).show();
         Uri alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM);
         if (alarmUri == null) {
@@ -86,6 +85,7 @@ public class AlaramBroadcast extends BroadcastReceiver {
         mBuilder.build().flags = Notification.FLAG_NO_CLEAR | Notification.PRIORITY_HIGH;
         mBuilder.setContent(contentView);
         mBuilder.setContentIntent(pendingIntent);
+        mBuilder.clearActions();
 
         //we have to create notification channel after api level 30
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {

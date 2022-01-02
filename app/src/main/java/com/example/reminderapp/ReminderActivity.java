@@ -147,15 +147,17 @@ public class ReminderActivity extends AppCompatActivity {
 
         Intent intent = new Intent(getApplicationContext(), AlaramBroadcast.class);
         intent.putExtra("event", text); //sending data to alarm class to create channel and notification
-        intent.putExtra("time", date);
-        intent.putExtra("date", time);
+        intent.putExtra("time", time);
+        intent.putExtra("date", date);
+
+        Date l = new Date();
 
         PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
         String dateandtime = date + " " + timeTonotify;
         DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
         try {
             Date date1 = formatter.parse(dateandtime);
-            am.set(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+            am.setExact(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
             Toast.makeText(getApplicationContext(), "Alaram", Toast.LENGTH_SHORT).show();
 
         } catch (ParseException e) {

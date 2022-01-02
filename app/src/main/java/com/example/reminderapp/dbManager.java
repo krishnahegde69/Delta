@@ -56,5 +56,12 @@ public class dbManager extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public int deleteData(int i)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        return db.delete("tbl_reminder","id = ?", new String[]{String.valueOf(i)});
+    }
+
+
 }
 

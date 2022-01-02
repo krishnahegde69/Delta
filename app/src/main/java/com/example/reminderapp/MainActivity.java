@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         Cursor cursor = new dbManager(getApplicationContext()).readallreminders(); //Cursor To Load data From the database
         while (cursor.moveToNext()) {
-            Model model = new Model(cursor.getString(1), cursor.getString(2), cursor.getString(3));
+            Model model = new Model(cursor.getInt(0),cursor.getString(1), cursor.getString(2), cursor.getString(3));
             dataholder.add(model);
         }
 

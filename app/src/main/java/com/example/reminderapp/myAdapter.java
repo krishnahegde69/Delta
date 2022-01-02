@@ -33,6 +33,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myviewholder> {
 
     @Override
     public void onBindViewHolder(@NonNull myviewholder holder, int position) {
+
         holder.mTitle.setText(dataholder.get(position).getTitle());  //Binds the single reminder objects to recycler view
         holder.mDate.setText(dataholder.get(position).getDate());
         holder.mTime.setText(dataholder.get(position).getTime());
@@ -53,13 +54,16 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.myviewholder> {
         public myviewholder(@NonNull View itemView) {
             super(itemView);
 
-            mTitle = (TextView) itemView.findViewById(R.id.txtTitle);                               //holds the reference of the materials to show data in recyclerview
+            mTitle = (TextView) itemView.findViewById(R.id.txtTitle);  //holds the reference of the materials to show data in recyclerview
             mDate = (TextView) itemView.findViewById(R.id.txtDate);
             mTime = (TextView) itemView.findViewById(R.id.txtTime);
 
             itemView.findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    int position = getAdapterPosition();
+                    int id = dataholder.get(position).getId();
+                    new dbManager(v.getContext()).deleteData(id);
                     dataholder.remove(getAdapterPosition());
                     notifyDataSetChanged();
                 }
