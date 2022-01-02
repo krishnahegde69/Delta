@@ -3,20 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-
     android:layout_margin="10dp"
-    app:cardCornerRadius="10dp">
+    app:cardElevation="50dp"
+    app:cardCornerRadius="25dp">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="#FFF8F7"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="Title"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -25,6 +27,7 @@
             android:id="@+id/txtDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="Date"
             android:textSize="20dp"
             android:textStyle="italic" />
@@ -34,6 +37,7 @@
             android:id="@+id/txtTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:text="Time"
             android:textSize="20dp"
             android:textStyle="italic" />
@@ -42,6 +46,8 @@
             android:id="@+id/delete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/ripple"
             android:text="DELETE" />
 
     </LinearLayout>
