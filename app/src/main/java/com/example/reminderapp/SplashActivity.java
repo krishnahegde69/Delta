@@ -22,6 +22,6 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class)); //after 500 milliseconds this block calls the mainActivity
                 finish();
             }
-        }, secondsDelayed * 5000);
+        }, secondsDelayed * 3000);
     }
 }

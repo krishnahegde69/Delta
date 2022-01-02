@@ -66,7 +66,7 @@ public class AlaramBroadcast extends BroadcastReceiver {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(3000);  //stop after 3 seconds
+                    Thread.sleep(10000);  //stop after 10 seconds
                     if (ringtone.isPlaying())
                         ringtone.stop();   // for stop ringtone
                 } catch (InterruptedException e) {
@@ -80,12 +80,13 @@ public class AlaramBroadcast extends BroadcastReceiver {
         mBuilder.setOngoing(true);
         mBuilder.setAutoCancel(true);
         mBuilder.setPriority(Notification.PRIORITY_HIGH);
+        mBuilder.setCategory(NotificationCompat.CATEGORY_CALL);
         mBuilder.setOnlyAlertOnce(true);
         mBuilder.setAutoCancel(true);
         mBuilder.build().flags = Notification.FLAG_NO_CLEAR | Notification.PRIORITY_HIGH;
         mBuilder.setContent(contentView);
         mBuilder.setContentIntent(pendingIntent);
-        mBuilder.clearActions();
+//        pendingIntent.cancel();
 
         //we have to create notification channel after api level 30
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
@@ -98,7 +99,9 @@ public class AlaramBroadcast extends BroadcastReceiver {
         }
 
         Notification notification = mBuilder.build();
+
         notificationManager.notify(1, notification);
+
 
     }
 }

@@ -33,7 +33,7 @@ public class ReminderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reminder);
 
-        mTitledit = (EditText) findViewById(R.id.editTitle);
+        mTitledit = (EditText) findViewById(R.id.outlinedTextField);
         mDatebtn = (Button) findViewById(R.id.btnDate);  //assigned all the material reference to get and set data
         mTimebtn = (Button) findViewById(R.id.btnTime);
         mSubmitbtn = (Button) findViewById(R.id.btnSbumit);
@@ -152,21 +152,23 @@ public class ReminderActivity extends AppCompatActivity {
 
         Date l = new Date();
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
-        String dateandtime = date + " " + timeTonotify;
-        DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
-        try {
-            Date date1 = formatter.parse(dateandtime);
-            am.setExact(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
-            Toast.makeText(getApplicationContext(), "Alaram", Toast.LENGTH_SHORT).show();
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+            PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, PendingIntent.FLAG_ONE_SHOT);
+            String dateandtime = date + " " + timeTonotify;
+            DateFormat formatter = new SimpleDateFormat("d-M-yyyy hh:mm");
+            try {
+                Date date1 = formatter.parse(dateandtime);
+                am.setExact(AlarmManager.RTC_WAKEUP, date1.getTime(), pendingIntent);
+                Toast.makeText(getApplicationContext(), "Alaram", Toast.LENGTH_SHORT).show();
 
-        Intent intentBack = new Intent(getApplicationContext(), MainActivity.class);  //this intent will be called once the setting alaram is completes
-        intentBack.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intentBack);    //navigates from adding reminder activity ot mainactivity
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+            Intent intentBack = new Intent(getApplicationContext(), MainActivity.class);  //this intent will be called once the setting alaram is completes
+            intentBack.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intentBack);    //navigates from adding reminder activity ot mainactivity
+
 
     }
 }

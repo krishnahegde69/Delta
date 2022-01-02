@@ -10,44 +10,31 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="412dp"
-        android:layout_height="37dp"
+        android:layout_width="402dp"
+        android:layout_height="52dp"
         android:fontFamily="@font/eagle_lake"
-        android:text="REMINDE ME"
+        android:text="REMINDER"
         android:textAlignment="center"
-        android:textColor="#F3857D"
+        android:textColor="#CC83B7"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.298" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="366dp"
-        android:layout_height="485dp"
+        android:layout_width="408dp"
+        android:layout_height="396dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.369"
-        app:srcCompat="@drawable/remind_clock" />
+        app:layout_constraintVertical_bias="0.2"
+        app:srcCompat="@drawable/rm" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="405dp"
-        android:layout_height="38dp"
-        android:text='"Every second is important"'
-        android:textAlignment="center"
-        android:textColor="#E8827B"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.39" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
