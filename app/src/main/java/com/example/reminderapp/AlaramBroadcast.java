@@ -66,7 +66,7 @@ public class AlaramBroadcast extends BroadcastReceiver {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(10000);  //stop after 10 seconds
+                    Thread.sleep(5000);  //stop after 5 seconds
                     if (ringtone.isPlaying())
                         ringtone.stop();   // for stop ringtone
                 } catch (InterruptedException e) {

@@ -88,6 +88,7 @@ public class ReminderActivity extends AppCompatActivity {
         Calendar calendar = Calendar.getInstance();
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
         int minute = calendar.get(Calendar.MINUTE);
+
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, new TimePickerDialog.OnTimeSetListener() {
             @Override
             public void onTimeSet(TimePicker timePicker, int i, int i1) {
@@ -96,6 +97,7 @@ public class ReminderActivity extends AppCompatActivity {
             }
         }, hour, minute, false);
         timePickerDialog.show();
+
     }
 
     private void selectDate() {     //this method performs the date picker task

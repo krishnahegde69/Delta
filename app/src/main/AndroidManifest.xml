@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.reminderapp">
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -24,7 +24,15 @@
         <activity android:name=".ReminderActivity" />
         <activity android:name=".MainActivity">
         </activity>
-        <receiver android:name=".AlaramBroadcast" />
+        <receiver android:name=".AlaramBroadcast"
+            android:directBootAware="true"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.LOCKED_BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>>
     </application>
 
 </manifest>
